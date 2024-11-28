@@ -15,14 +15,14 @@ class License: Identifiable
     @Relationship(deleteRule: .cascade)
     var category: LicenseCategory?
 
-    var softwareName: String
+    var softwareName: String?
     
     @Attribute(.externalStorage)
     var softwareIconData: Data?
 
-    var licenseKey: String
+    var licenseKey: String?
 
-    init(category: LicenseCategory? = nil, softwareName: String, softwareIconData: Data? = nil, licenseKey: String)
+    init(category: LicenseCategory? = nil, softwareName: String? = nil, softwareIconData: Data? = nil, licenseKey: String? = nil)
     {
         self.category = category
         self.softwareName = softwareName

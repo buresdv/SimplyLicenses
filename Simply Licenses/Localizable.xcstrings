@@ -1,0 +1,105 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "action.add-license" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add license…"
+          }
+        }
+      }
+    },
+    "action.close" : {
+
+    },
+    "debug.hello" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello World!"
+          }
+        }
+      }
+    },
+    "Detail" : {
+
+    },
+    "Hello, World!" : {
+
+    },
+    "interface.sheet.category-addition.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sheet for adding license categories"
+          }
+        }
+      }
+    },
+    "interface.sheet.category-addition.sheet-title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Category"
+          }
+        }
+      }
+    },
+    "interface.sheet.license-addition.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sheet for adding licenses"
+          }
+        }
+      }
+    },
+    "interface.sheet.license-addition.sheet-title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add License"
+          }
+        }
+      }
+    },
+    "license.name-missing" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No software assigned"
+          }
+        }
+      }
+    },
+    "license.none-saved.add-prompt.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save your first license to get started"
+          }
+        }
+      }
+    },
+    "license.none-saved.add-prompt.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No licenses saved"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

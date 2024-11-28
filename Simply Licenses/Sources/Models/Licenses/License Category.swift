@@ -11,12 +11,12 @@ import SwiftData
 @Model
 class LicenseCategory
 {
-    var name: String
+    var name: String?
     
     @Relationship(inverse: \License.category)
-    var licenses: [License]
+    var licenses: [License]?
     
-    init(name: String, licenses: [License]) {
+    init(name: String? = nil, licenses: [License]? = nil) {
         self.name = name
         self.licenses = licenses
     }

@@ -12,12 +12,16 @@ import Simply_Licenses_Shared
 @main
 struct SimplyLicensesApp: App
 {
+    
+    @State var appState: AppState = .init()
+    
     var body: some Scene
     {
         WindowGroup
         {
             ContentView()
         }
+        .environment(appState)
         .modelContainer(for: [License.self], inMemory: true, isAutosaveEnabled: true, isUndoEnabled: true) { modelContainerSetupResult in
             switch modelContainerSetupResult {
             case .success(let success):
