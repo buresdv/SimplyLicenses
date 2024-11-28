@@ -1,0 +1,32 @@
+//
+//  License.swift
+//  Simply Licenses
+//
+//  Created by David Bureš on 28.11.2024.
+//
+
+import Foundation
+import SwiftData
+import SwiftUI
+
+@Model
+class License: Identifiable
+{
+    @Relationship(deleteRule: .cascade)
+    var category: LicenseCategory?
+
+    var softwareName: String
+    
+    @Attribute(.externalStorage)
+    var softwareIconData: Data?
+
+    var licenseKey: String
+
+    init(category: LicenseCategory? = nil, softwareName: String, softwareIconData: Data? = nil, licenseKey: String)
+    {
+        self.category = category
+        self.softwareName = softwareName
+        self.softwareIconData = softwareIconData
+        self.licenseKey = licenseKey
+    }
+}
