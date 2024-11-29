@@ -46,8 +46,13 @@ let project = Project(
             destinations: .macOS,
             product: .app,
             bundleId: "com.davidbures.Simply-Licenses",
-            sources: ["Simply Licenses/Sources/**"],
-            resources: ["Simply Licenses/Resources/**"],
+            sources: [
+                "Simply Licenses/Sources/**"
+            ],
+            resources: [
+                "Simply Licenses/**/*.xcassets",
+                "Simply Licenses/**/*.xcstrings",
+            ],
             entitlements: .file(path: "Entitlements/Simply Licenses.entitlements"),
             dependencies: [
                 .package(product: "SwiftLintBuildToolPlugin", type: .plugin),

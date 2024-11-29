@@ -5,16 +5,32 @@
 //  Created by David Bureš on 28.11.2024.
 //
 
-import SwiftUI
-import SwiftData
 import Simply_Licenses_Shared
+import SwiftData
+import SwiftUI
 
 @main
 struct SimplyLicensesApp: App
 {
-    
+    var modelContainer: ModelContainer = {
+        let schema: Schema = .init([
+            License.self
+        ])
+
+        let modelConfiguration: ModelConfiguration = .init(schema: schema, isStoredInMemoryOnly: false)
+
+        do
+        {
+            return try ModelContainer(for: schema, configurations: modelConfiguration)
+        }
+        catch let modelContainerCreationError
+        {
+            fatalError("Failed to create model container: \(modelContainerCreationError.localizedDescription)")
+        }
+    }()
+
     @State var appState: AppState = .init()
-    
+
     var body: some Scene
     {
         WindowGroup
@@ -22,13 +38,6 @@ struct SimplyLicensesApp: App
             ContentView()
         }
         .environment(appState)
-        .modelContainer(for: [License.self], inMemory: true, isAutosaveEnabled: true, isUndoEnabled: true) { modelContainerSetupResult in
-            switch modelContainerSetupResult {
-            case .success(let success):
-                AppConstants.shared.logger.info("Model container initialized")
-            case .failure(let failure):
-                AppConstants.shared.logger.error("Failed to initialize model container")
-            }
-        }
+        .modelContainer(modelContainer)
     }
 }

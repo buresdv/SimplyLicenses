@@ -2,6 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "action.add-license" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -12,7 +13,65 @@
       }
     },
     "action.close" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        }
+      }
+    },
+    "add-license.license-key.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "License Keys"
+          }
+        }
+      }
+    },
+    "add-license.license-key.prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "wd34-rgbw-2245"
+          }
+        }
+      }
+    },
+    "add-license.section.license-keys" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "License Keys"
+          }
+        }
+      }
+    },
+    "add-license.software-name.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Software"
+          }
+        }
+      }
+    },
+    "add-license.software-name.prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork"
+          }
+        }
+      }
     },
     "debug.hello" : {
       "localizations" : {
@@ -31,6 +90,7 @@
 
     },
     "interface.sheet.category-addition.description" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -41,6 +101,7 @@
       }
     },
     "interface.sheet.category-addition.sheet-title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -51,6 +112,7 @@
       }
     },
     "interface.sheet.license-addition.description" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -61,6 +123,7 @@
       }
     },
     "interface.sheet.license-addition.sheet-title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -91,6 +154,7 @@
       }
     },
     "license.none-saved.add-prompt.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

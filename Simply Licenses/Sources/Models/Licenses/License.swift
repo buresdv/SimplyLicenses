@@ -20,9 +20,9 @@ class License: Identifiable
     @Attribute(.externalStorage)
     var softwareIconData: Data?
 
-    var licenseKey: String?
+    var licenseKey: [String]?
 
-    init(category: LicenseCategory? = nil, softwareName: String? = nil, softwareIconData: Data? = nil, licenseKey: String? = nil)
+    init(category: LicenseCategory? = nil, softwareName: String? = nil, softwareIconData: Data? = nil, licenseKey: [String]? = nil)
     {
         self.category = category
         self.softwareName = softwareName
