@@ -2,12 +2,11 @@
   "sourceLanguage" : "en",
   "strings" : {
     "action.add-license" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add license…"
+            "value" : "Add license"
           }
         }
       }
@@ -23,14 +22,41 @@
       }
     },
     "action.copy" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy"
+          }
+        }
+      }
+    },
+    "action.delete-key" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete key"
+          }
+        }
+      }
+    },
+    "action.edit" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        }
+      }
     },
     "add-license.license-key.label" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "License Keys"
+            "value" : "License keys"
           }
         }
       }
@@ -40,21 +66,27 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "wd34-rgbw-2245"
+            "value" : "wg2-rwtz21-86e"
           }
         }
       }
     },
     "add-license.section.license-key" : {
-
-    },
-    "add-license.section.license-keys" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "License Keys"
+            "value" : "License keys"
+          }
+        }
+      }
+    },
+    "add-license.section.license-keys" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "License keys"
           }
         }
       }
@@ -79,43 +111,67 @@
         }
       }
     },
+    "alert.forbidden-to-delete-last-key.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can’t delete the last license key"
+          }
+        }
+      }
+    },
+    "alert.forbidden-to-delete-last-key.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t delete key"
+          }
+        }
+      }
+    },
     "debug.hello" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hello World!"
+            "value" : "Hello"
           }
         }
       }
     },
     "Hello, World!" : {
-
-    },
-    "interface.sheet.category-addition.description" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sheet for adding license categories"
+            "value" : "Hello, world!"
+          }
+        }
+      }
+    },
+    "interface.sheet.category-addition.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sheet for adding categories"
           }
         }
       }
     },
     "interface.sheet.category-addition.sheet-title" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add Category"
+            "value" : "Add category"
           }
         }
       }
     },
     "interface.sheet.license-addition.description" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -126,21 +182,36 @@
       }
     },
     "interface.sheet.license-addition.sheet-title" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add License"
+            "value" : "Add license"
           }
         }
       }
     },
-    "label.number-of-licenses.%@" : {
-
+    "interface.sheet.license-editing.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sheet for editing licenses"
+          }
+        }
+      }
+    },
+    "interface.sheet.license-editing.sheet-title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit license"
+          }
+        }
+      }
     },
     "label.number-of-licenses.%lld" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "variations" : {
@@ -148,7 +219,7 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "One license saved"
+                  "value" : "One license"
                 }
               },
               "other" : {
@@ -158,17 +229,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "license.name-missing" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No software assigned"
           }
         }
       }
@@ -183,23 +243,42 @@
         }
       }
     },
+    "license.no-license-selected.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No license selected"
+          }
+        }
+      }
+    },
     "license.none-saved.add-prompt.description" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Save your first license to get started"
+            "value" : "Add a license to get started"
           }
         }
       }
     },
     "license.none-saved.add-prompt.title" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No licenses saved"
+            "value" : "No licenses added"
+          }
+        }
+      }
+    },
+    "search.prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find license… "
           }
         }
       }
@@ -209,7 +288,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No categories available"
+            "value" : "No categories added"
           }
         }
       }

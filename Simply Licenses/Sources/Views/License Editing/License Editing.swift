@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LicenseEditingSheet: View
 {
+    @Environment(AppState.self) var appState: AppState
+    
     @Bindable var licenseToEdit: License
 
     enum FocusedField
@@ -22,7 +24,7 @@ struct LicenseEditingSheet: View
 
     var body: some View
     {
-        SheetTemplate(sheetType: .licenseAddition)
+        SheetTemplate(sheetType: .licenseEditing(licenseToEdit: licenseToEdit))
         {
             Form
             {
@@ -38,11 +40,29 @@ struct LicenseEditingSheet: View
                     {
                         Section
                         {
-                            ForEach($licenseToEdit.licenseKey, id: \.id)
+                            ForEach($licenseToEdit.licenseKey)
                             { $key in
                                 TextField(text: $key.key)
                                 {
                                     Text("add-license.section.license-key")
+                                }
+                                .swipeActions(edge: .trailing, allowsFullSwipe: true)
+                                {
+                                    Button(role: .destructive)
+                                    {
+                                        guard licenseToEdit.licenseKey.count > 1 else
+                                        {
+                                            appState.showAlert(ofType: .forbiddenToDeleteLastLicenseKey)
+                                            return
+                                        }
+                                        
+                                        if let keyIndextoDelete = licenseToEdit.licenseKey.firstIndex(where: { $0.id == key.id })
+                                        {
+                                            licenseToEdit.licenseKey.remove(at: keyIndextoDelete)
+                                        }
+                                    } label: {
+                                        Label("action.delete-key", systemImage: "trash")
+                                    }
                                 }
                             }
                         } header: {
@@ -58,7 +78,6 @@ struct LicenseEditingSheet: View
             }
             .formStyle(.grouped)
         }
-        .formStyle(.grouped)
     }
     
     // MARK: - ViewBuilders

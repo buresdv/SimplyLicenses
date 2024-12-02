@@ -14,14 +14,15 @@ struct ContentView: View
 
     @Query
     var savedLicenses: [License]
-    
+
     @Query
     var categories: [LicenseCategory]
 
     // MARK: - Selections for navigation
+
     @State private var selectedCategory: LicenseCategory?
     @State private var selectedLicense: License?
-    
+
     var body: some View
     {
         @Bindable var appState: AppState = appState
@@ -48,6 +49,21 @@ struct ContentView: View
                 CategoryAdditionSheet()
             case .licenseEditing(let licenseToEdit):
                 LicenseEditingSheet(licenseToEdit: licenseToEdit)
+            }
+        }
+        .alert(isPresented: $appState.isShowingAlert, error: appState.alertToShow)
+        { alertType in
+            switch alertType
+            {
+            case .forbiddenToDeleteLastLicenseKey:
+                EmptyView()
+            case .genericWithLocalizedError:
+                EmptyView()
+            }
+        } message: { alertType in
+            if let recoverySuggestion = alertType.recoverySuggestion
+            {
+                Text(recoverySuggestion)
             }
         }
     }
