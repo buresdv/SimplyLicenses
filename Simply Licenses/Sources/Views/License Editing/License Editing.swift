@@ -17,6 +17,8 @@ struct LicenseEditingSheet: View
     }
 
     @FocusState private var focusedField: FocusedField?
+    
+    @State private var newLicense_licenseKeyCurrentlyBeingEdited: String = ""
 
     var body: some View
     {
@@ -46,6 +48,9 @@ struct LicenseEditingSheet: View
                         } header: {
                             HStack(alignment: .center)
                             {
+                                licenseKeyInputField
+                                
+                                addLicenseToListButton
                             }
                         }
                     }
@@ -54,5 +59,48 @@ struct LicenseEditingSheet: View
             .formStyle(.grouped)
         }
         .formStyle(.grouped)
+    }
+    
+    // MARK: - ViewBuilders
+
+    @ViewBuilder
+    var licenseKeyInputField: some View
+    {
+        TextField(text: $newLicense_licenseKeyCurrentlyBeingEdited, prompt: Text("add-license.license-key.prompt"))
+        {
+            Text("add-license.license-key.label")
+        }
+        .focused($focusedField, equals: .licenseKeyField)
+        .onSubmit
+        {
+            focusedField = .licenseKeyField
+            addLicenseToListOfLicenses()
+        }
+    }
+    
+    @ViewBuilder
+    var addLicenseToListButton: some View
+    {
+        Button
+        {
+            addLicenseToListOfLicenses()
+        } label: {
+            Image(systemName: "plus")
+        }
+        .buttonStyle(.plain)
+        .keyboardShortcut(.return)
+        .disabled(newLicense_licenseKeyCurrentlyBeingEdited.isEmpty)
+    }
+}
+
+private extension LicenseEditingSheet
+{
+    func addLicenseToListOfLicenses()
+    {
+        withAnimation
+        {
+            licenseToEdit.licenseKey.append(.init(key: newLicense_licenseKeyCurrentlyBeingEdited))
+        }
+        newLicense_licenseKeyCurrentlyBeingEdited = ""
     }
 }
