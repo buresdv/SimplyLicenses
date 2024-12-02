@@ -10,7 +10,7 @@ import SwiftData
 import SwiftUI
 
 @Model
-class License: Identifiable
+class License: Identifiable, Hashable
 {
     @Relationship(deleteRule: .cascade)
     var category: LicenseCategory?
@@ -28,5 +28,20 @@ class License: Identifiable
         self.softwareName = softwareName
         self.softwareIconData = softwareIconData
         self.licenseKey = licenseKey
+    }
+}
+
+extension License
+{
+    var numberOfLicenses: Int
+    {
+        if let licenseKey
+        {
+            return licenseKey.count
+        }
+        else
+        {
+            return 0
+        }
     }
 }

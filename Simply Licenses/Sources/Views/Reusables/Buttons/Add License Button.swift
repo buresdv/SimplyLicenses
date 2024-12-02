@@ -18,5 +18,6 @@ struct AddLicenseButton: View
         } label: {
             Label("action.add-license", systemImage: "plus")
         }
+        .keyboardShortcut("n", modifiers: .command)
     }
 }

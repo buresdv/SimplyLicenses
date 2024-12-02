@@ -15,11 +15,27 @@ struct LicenseListItem: View
     {
         if let licenseSoftwareName = licenseItem.softwareName
         {
-            Text(licenseSoftwareName)
+            NavigationLink(value: licenseItem)
+            {
+                licenseLabel(softwareName: licenseSoftwareName, licenseCount: licenseItem.licenseKey?.count ?? 0)
+            }
         }
         else
         {
             Text("license.name-missing")
+        }
+    }
+    
+    @ViewBuilder
+    func licenseLabel(softwareName: String, licenseCount: Int) -> some View
+    {
+        VStack(alignment: .leading)
+        {
+            Text(softwareName)
+            
+            Text("label.number-of-licenses.\(licenseCount)")
+                .font(.subheadline)
+                .tint(.secondary)
         }
     }
 }

@@ -10,10 +10,16 @@ import SwiftData
 
 struct LicensesList: View
 {
+    @Environment(\.modelContext) var modelContext: ModelContext
+    
     @Environment(AppState.self) var appState: AppState
     
     @Query
     var savedLicenses: [License]
+    
+    @Binding var selectedLicense: License?
+    
+    @State private var searchText: String = ""
     
     var body: some View
     {
@@ -32,15 +38,38 @@ struct LicensesList: View
             }
             else
             {
-                List(savedLicenses)
-                { savedLicense in
-                    LicenseListItem(licenseItem: savedLicense)
+                List(selection: $selectedLicense)
+                {
+                    ForEach(savedLicenses)
+                    { savedLicense in
+                        LicenseListItem(licenseItem: savedLicense)
+                    }
+                    .onDelete(perform: deleteLicense)
                 }
+                .searchable(text: $searchText, placement: .automatic, prompt: "search.prompt")
             }
         }
         .toolbar
         {
-            AddLicenseButton()
+            ToolbarItem(placement: .primaryAction) {
+                AddLicenseButton()
+            }
+        }
+    }
+}
+
+private extension LicensesList
+{
+    func deleteLicense(_ indexSet: IndexSet)
+    {
+        for index in indexSet
+        {
+            let licenseToDelete: License = savedLicenses[index]
+            
+            withAnimation
+            {
+                modelContext.delete(licenseToDelete)
+            }
         }
     }
 }

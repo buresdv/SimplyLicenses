@@ -5,39 +5,49 @@
 //  Created by David Bureš on 28.11.2024.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct ContentView: View
 {
     @Environment(AppState.self) var appState: AppState
-    
+
     @Query
     var savedLicenses: [License]
+    
+    @Query
+    var categories: [LicenseCategory]
+
+    // MARK: - Selections for navigation
+    @State private var selectedCategory: LicenseCategory?
+    @State private var selectedLicense: License?
     
     var body: some View
     {
         @Bindable var appState: AppState = appState
-        
+
         NavigationSplitView(columnVisibility: Binding(get: {
-            savedLicenses.isEmpty ? .doubleColumn : .all
+            categories.isEmpty ? .doubleColumn : .all
         }, set: { visibility in
             visibility
         }))
         {
-            SidebarView()
+            SidebarView(selectedCategory: $selectedCategory)
         } content: {
-            LicensesList()
+            LicensesList(selectedLicense: $selectedLicense)
         } detail: {
-            Text("Detail")
+            LicenseDetail(selectedLicense: selectedLicense)
         }
-        .sheet(item: $appState.sheetToShow) { sheetType in
+        .sheet(item: $appState.sheetToShow)
+        { sheetType in
             switch sheetType
             {
             case .licenseAddition:
                 LicenseAdditionSheet()
             case .categoryAddition:
                 CategoryAdditionSheet()
+            case .licenseEditing(let licenseToEdit):
+                LicenseEditingSheet(licenseToEdit: licenseToEdit)
             }
         }
     }

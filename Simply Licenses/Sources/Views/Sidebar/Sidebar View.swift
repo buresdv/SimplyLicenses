@@ -6,16 +6,31 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SidebarView: View
 {
+    @Binding var selectedCategory: LicenseCategory?
+    
+    @Query
+    var categories: [LicenseCategory]
+    
     var body: some View
     {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if categories.isEmpty
+        {
+            Text("status.no-categories-available")
+                .toolbar(removing: .sidebarToggle)
+        }
+        else
+        {
+            List(selection: $selectedCategory)
+            {
+                ForEach(categories)
+                { category in
+                    Text(category.name ?? "category.name-missing")
+                }
+            }
+        }
     }
-}
-
-#Preview
-{
-    SidebarView()
 }

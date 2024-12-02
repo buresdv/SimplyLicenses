@@ -9,12 +9,8 @@ import Foundation
 
 @Observable
 final class AppState
-{
-    var isShowingLicenseAdditionSheet: Bool = false
-    
+{    
     var sheetToShow: DisplayableSheet?
-    
-    var isShowingCategoryAdditionSheet: Bool = false
     
     func showSheet(ofType sheetType: DisplayableSheet)
     {

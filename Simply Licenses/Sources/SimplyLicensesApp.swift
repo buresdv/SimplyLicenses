@@ -39,5 +39,14 @@ struct SimplyLicensesApp: App
         }
         .environment(appState)
         .modelContainer(modelContainer)
+        .commands
+        {
+            CommandGroup(before: .textEditing)
+            {
+                AddLicenseButton()
+                    .environment(appState)
+                    .modelContainer(modelContainer)
+            }
+        }
     }
 }

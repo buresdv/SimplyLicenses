@@ -139,11 +139,6 @@ struct LicenseAdditionSheet: View
     }
 }
 
-#Preview
-{
-    LicenseAdditionSheet()
-}
-
 private extension LicenseAdditionSheet
 {
     func addLicenseToListOfLicenses()
