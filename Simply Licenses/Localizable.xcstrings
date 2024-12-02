@@ -35,9 +35,6 @@
         }
       }
     },
-    "add-license.license-key.none-available" : {
-
-    },
     "add-license.license-key.prompt" : {
       "localizations" : {
         "en" : {
@@ -47,6 +44,9 @@
           }
         }
       }
+    },
+    "add-license.section.license-key" : {
+
     },
     "add-license.section.license-keys" : {
       "extractionState" : "stale",
@@ -163,6 +163,7 @@
       }
     },
     "license.name-missing" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

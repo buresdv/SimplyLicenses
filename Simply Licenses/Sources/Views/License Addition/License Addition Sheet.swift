@@ -25,7 +25,7 @@ struct LicenseAdditionSheet: View
     @State private var newLicense_softwareName: String = ""
     @State private var newLicense_licenseKeyCurrentlyBeingEdited: String = ""
 
-    @State private var newLicense_licenseKeys: [String] = .init()
+    @State private var newLicense_licenseKeys: [LicenseKey] = .init()
 
     private var isAddLicenseButtonDisabled: Bool
     {
@@ -57,7 +57,7 @@ struct LicenseAdditionSheet: View
                         {
                             ForEach(newLicense_licenseKeys, id: \.self)
                             { key in
-                                Text(key)
+                                Text(key.key)
                             }
                         } header: {
                             HStack(alignment: .center)
@@ -145,7 +145,7 @@ private extension LicenseAdditionSheet
     {
         withAnimation
         {
-            newLicense_licenseKeys.append(newLicense_licenseKeyCurrentlyBeingEdited)
+            newLicense_licenseKeys.append(.init(key: newLicense_licenseKeyCurrentlyBeingEdited))
         }
         newLicense_licenseKeyCurrentlyBeingEdited = ""
     }

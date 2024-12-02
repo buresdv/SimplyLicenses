@@ -21,34 +21,27 @@ struct LicenseDetail: View
             {
                 Form
                 {
-                    TextField(text: .constant(selectedLicense.softwareName!))
+                    TextField(text: .constant(selectedLicense.softwareName))
                     {
                         Text("add-license.software-name.label")
                     }
 
                     Section
                     {
-                        if let licenseKey = selectedLicense.licenseKey
-                        {
-                            List(licenseKey, id: \.self)
-                            { licenseKey in
-                                Text(licenseKey)
-                                    .contextMenu
+                        List(selectedLicense.licenseKey)
+                        { licenseKey in
+                            Text(licenseKey.key)
+                                .contextMenu
+                                {
+                                    Button
                                     {
-                                        Button
-                                        {
-                                            let pasteboard: NSPasteboard = NSPasteboard.general
-                                            pasteboard.declareTypes([.string], owner: nil)
-                                            pasteboard.setString(licenseKey, forType: .string)
-                                        } label: {
-                                            Text("action.copy")
-                                        }
+                                        let pasteboard: NSPasteboard = NSPasteboard.general
+                                        pasteboard.declareTypes([.string], owner: nil)
+                                        pasteboard.setString(licenseKey.key, forType: .string)
+                                    } label: {
+                                        Text("action.copy")
                                     }
-                            }
-                        }
-                        else
-                        {
-                            Text("add-license.license-key.none-available")
+                                }
                         }
                     } header: {
                         Text("add-license.license-key.label")

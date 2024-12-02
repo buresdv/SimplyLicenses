@@ -10,29 +10,22 @@ import SwiftUI
 struct LicenseListItem: View
 {
     @Bindable var licenseItem: License
-    
+
     var body: some View
     {
-        if let licenseSoftwareName = licenseItem.softwareName
+        NavigationLink(value: licenseItem)
         {
-            NavigationLink(value: licenseItem)
-            {
-                licenseLabel(softwareName: licenseSoftwareName, licenseCount: licenseItem.licenseKey?.count ?? 0)
-            }
-        }
-        else
-        {
-            Text("license.name-missing")
+            licenseLabel(softwareName: licenseItem.softwareName, licenseCount: licenseItem.licenseKey.count)
         }
     }
-    
+
     @ViewBuilder
     func licenseLabel(softwareName: String, licenseCount: Int) -> some View
     {
         VStack(alignment: .leading)
         {
             Text(softwareName)
-            
+
             Text("label.number-of-licenses.\(licenseCount)")
                 .font(.subheadline)
                 .tint(.secondary)

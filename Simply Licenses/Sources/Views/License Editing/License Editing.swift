@@ -36,9 +36,12 @@ struct LicenseEditingSheet: View
                     {
                         Section
                         {
-                            ForEach(licenseToEdit.licenseKey, id: \.self)
-                            { key in
-                                Text(key)
+                            ForEach($licenseToEdit.licenseKey, id: \.id)
+                            { $key in
+                                TextField(text: $key.key)
+                                {
+                                    Text("add-license.section.license-key")
+                                }
                             }
                         } header: {
                             HStack(alignment: .center)

@@ -15,14 +15,15 @@ class License: Identifiable, Hashable
     @Relationship(deleteRule: .cascade)
     var category: LicenseCategory?
 
-    var softwareName: String?
+    var softwareName: String
     
     @Attribute(.externalStorage)
     var softwareIconData: Data?
 
-    var licenseKey: [String]?
+    @Relationship(deleteRule: .cascade)
+    var licenseKey: [LicenseKey]
 
-    init(category: LicenseCategory? = nil, softwareName: String? = nil, softwareIconData: Data? = nil, licenseKey: [String]? = nil)
+    init(category: LicenseCategory? = nil, softwareName: String, softwareIconData: Data? = nil, licenseKey: [LicenseKey])
     {
         self.category = category
         self.softwareName = softwareName
@@ -35,13 +36,17 @@ extension License
 {
     var numberOfLicenses: Int
     {
-        if let licenseKey
-        {
-            return licenseKey.count
-        }
-        else
-        {
-            return 0
-        }
+        return licenseKey.count
+    }
+}
+
+@Model
+class LicenseKey: Identifiable
+{
+    @Relationship(inverse: \License.licenseKey)
+    var key: String
+    
+    init(key: String) {
+        self.key = key
     }
 }
